@@ -1,0 +1,168 @@
+#include <stdio.h>
+
+int main() {
+    char estadoA, estadoB;                            // Estado (A-H)
+    char codigoA[50], codigoB[50];                   // Código da carta (ex: A01, B03)
+    char cidadeA[50], cidadeB[50];                   // Nome da cidade
+    int populacaoA, populacaoB;                      // População
+    float areaA, areaB;                              // Área em km²
+    float pibA, pibB;                                // PIB
+    int pontos_turisticosA, pontos_turisticosB;      // Número de pontos turísticos
+    float densidadeA, densidadeB;
+    float capitaA, capitaB;
+    float super_poderA, super_poderB;                // Super Poder de cada carta
+
+    // Cadastro da Carta 1
+    printf("Digite o estado (A-H): ");
+    scanf(" %c", &estadoA);  
+
+    printf("Digite o número da carta (01-04): ");
+    scanf("%s", codigoA);  
+
+    printf("Digite o nome da cidade: ");
+    scanf("%s", cidadeA);  
+
+    printf("Digite a população: ");
+    scanf("%d", &populacaoA);
+
+    printf("Digite a área (em km²): ");
+    scanf("%f", &areaA);
+
+    printf("Digite o PIB: ");
+    scanf("%f", &pibA);
+
+    printf("Digite o número de pontos turísticos: ");
+    scanf("%d", &pontos_turisticosA);  
+
+    // Cálculos para a Carta 1
+    densidadeA = populacaoA / areaA;
+    capitaA = pibA / populacaoA;
+    super_poderA = populacaoA + areaA + pibA + pontos_turisticosA + capitaA + (1 / densidadeA);
+
+    // Cadastro da Carta 2
+    printf("Digite o estado (A-H): ");
+    scanf(" %c", &estadoB); 
+
+    printf("Digite o número da carta (01-04): ");
+    scanf("%s", codigoB); 
+
+    printf("Digite o nome da cidade: ");
+    scanf("%s", cidadeB);  
+
+    printf("Digite a população: ");
+    scanf("%d", &populacaoB);
+
+    printf("Digite a área (em km²): ");
+    scanf("%f", &areaB);
+
+    printf("Digite o PIB: ");
+    scanf("%f", &pibB);
+
+    printf("Digite o número de pontos turísticos: ");
+    scanf("%d", &pontos_turisticosB); 
+
+    // Cálculos para a Carta 2
+    densidadeB = populacaoB / areaB;
+    capitaB = pibB / populacaoB;
+    super_poderB = populacaoB + areaB + pibB + pontos_turisticosB + capitaB + (1 / densidadeB);
+
+    // Cálculos da Comparaçao
+    int resultado_populacao1, resultado_populacao2;
+    resultado_populacao1 = populacaoA > populacaoB;
+    resultado_populacao2 = populacaoB > populacaoA;
+
+    int resultado_area1, resultado_area2;
+    resultado_area1 = areaA > areaB;
+    resultado_area2 = areaB > areaA;
+
+    int resultado_pib1, resultado_pib2;
+    resultado_pib1 = pibA > pibB;
+    resultado_pib2 = pibB > pibA;
+
+    int resultado_pontosturisticos1, resultado_pontosturisticos2;
+    resultado_pontosturisticos1 = pontos_turisticosA > pontos_turisticosB;
+    resultado_pontosturisticos1 = pontos_turisticosB > pontos_turisticosA;
+
+    int resultado_densidade1, resultado_densidade2;
+    resultado_densidade1 = densidadeA < densidadeB;
+    resultado_densidade2 = densidadeB < densidadeA;
+
+    int resultado_percapita1, resultado_percapita2;
+    resultado_percapita1 = capitaA > capitaB;
+    resultado_percapita2 = capitaB > capitaA;
+
+    int resultado_poder1, resultado_poder2;
+    resultado_poder1 = super_poderA > super_poderB;
+    resultado_poder2 = super_poderB > super_poderA;
+
+    // Exibição dos dados da Carta 1
+    printf("\n--- Dados da carta 1 ---\n");
+    printf("Estado: %c\n", estadoA);
+    printf("Código: %s\n", codigoA);
+    printf("Cidade: %s\n", cidadeA);
+    printf("População: %d\n", populacaoA);
+    printf("Área: %.2f km²\n", areaA);
+    printf("PIB: %.2f\n", pibA);
+    printf("Pontos Turísticos: %d\n", pontos_turisticosA);
+    printf("Densidade é: %.2f\n", densidadeA);
+    printf("O PIB per capita é: %.2f\n", capitaA);
+    printf("Super Poder: %.2f\n", super_poderA);
+
+    // Exibição dos dados da Carta 2
+    printf("\n--- Dados da carta 2 ---\n");
+    printf("Estado: %c\n", estadoB);
+    printf("Código: %s\n", codigoB);
+    printf("Cidade: %s\n", cidadeB);
+    printf("População: %d\n", populacaoB);
+    printf("Área: %.2f km²\n", areaB);
+    printf("PIB: %.2f\n", pibB);
+    printf("Pontos Turísticos: %d\n", pontos_turisticosB);
+    printf("Densidade é: %.2f\n", densidadeB);
+    printf("O PIB per capita é: %.2f\n", capitaB);
+    printf("Super Poder: %.2f\n", super_poderB);
+
+
+    printf("\n--- Comparação Atributo por Atributo ---\n");
+
+    // População
+    printf("Carta 1 tem a Populaçao %d e a Carta 2 tem a populaçao %d\n", populacaoA, populacaoB);
+    printf("Carta 1 é Vencedora? %d\n", resultado_populacao1);
+    printf("Carta 2 é Vencedora? %d\n", resultado_populacao2);
+
+    //Area
+    printf("Carta 1 tem a Area %.2f e a Carta 2 tem a Area %.2f\n", areaA, areaB);
+    printf("Carta 1 é Vencedora? %d\n", resultado_area1);
+    printf("Carta 2 é Vencedora? %d\n", resultado_area2);
+
+    //PIB
+    printf("Carta 1 tem o PIB %.2f e a Carta 2 tem o PIB %.2f\n", pibA, pibB);
+    printf("Carta 1 é Vencedora? %d\n", resultado_pib1);
+    printf("Carta 2 é Vencedora? %d\n", resultado_pib2);
+
+    //Pontos Turisticos
+    printf("Carta 1 tem o PIB %.2f e a Carta 2 tem o PIB %.2f\n", pibA, pibB);
+    printf("Carta 1 é Vencedora? %d\n", resultado_pib1);
+    printf("Carta 2 é Vencedora? %d\n", resultado_pib2);
+
+    //Densidade
+    printf("Carta 1 tem a Densidade %.2f e a Carta 2 tem a Densidade %.2f\n", densidadeA, densidadeB);
+    printf("Carta 1 é Vencedora? %d\n", resultado_pib1);
+    printf("Carta 2 é Vencedora? %d\n", resultado_pib2);
+
+    // Per Capita
+    printf("Carta 1 tem o PIB per capita %.2f e a Carta 2 tem o PIB per capita %.2f\n", capitaA, capitaB);
+    printf("Carta 1 é Vencedora? %d\n", resultado_percapita1);
+    printf("Carta 2 é Vencedora? %d\n", resultado_percapita2);
+
+    //Super Poder
+    printf("Carta 1 tem o PODER: %f e a Carta 2 tem o PODER: %f \n", super_poderA, super_poderB);
+    printf("Carta 1 é Vencedora? %d\n", resultado_poder1);
+    printf("Carta 2 é Vencedora? %d\n", resultado_poder2);
+
+
+
+
+    
+
+    return 0;
+}
